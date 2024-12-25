@@ -1,26 +1,28 @@
 using System;
+using System.Collections.Generic;
+
 namespace IteratorPatternApp
 {
     public class ZatusdanTopicList : IAggregate
     {
-        private readonly ZatsudanTopic[] zatsudanTopics;
-        private int last = 0;
-        public ZatusdanTopicList(int maximize)
+        private readonly List<ZatsudanTopic> ZatsudanTopics;
+
+        public ZatusdanTopicList()
         {
-            this.zatsudanTopics = new ZatsudanTopic[maximize];
+            ZatsudanTopics = [];
         }
         public ZatsudanTopic GetZatsudanTopicAt(int index)
         {
-            return zatsudanTopics[index];
+            return ZatsudanTopics[index];
         }
         public void AppendZatsudanTopic(ZatsudanTopic zatsudanTopic)
         {
-            this.zatsudanTopics[last] = zatsudanTopic;
-            last++;
+            ZatsudanTopics.Add(zatsudanTopic);
+
         }
         public int GetLength()
         {
-            return last;
+            return ZatsudanTopics.Count;
         }
         // 戻り値がZatusdanToppicListIterator型ではなく、IIterator型（インターフェース）になっているのがミソ
         public IIterator Iterator()

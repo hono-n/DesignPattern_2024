@@ -2,3 +2,6 @@
 
 # IDE0290: プライマリ コンストラクターの使用
 csharp_style_prefer_primary_constructors = false
+
+# IDE0090: 'new(...)' を使用する
+csharp_style_implicit_object_creation_when_type_is_apparent = false
