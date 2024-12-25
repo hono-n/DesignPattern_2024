@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace IteratorPatternApp
 {
-    public class ZatusdanTopicList : IAggregate
+    public class ZatsudanTopicList : IAggregate
     {
         private readonly List<ZatsudanTopic> ZatsudanTopics;
 
-        public ZatusdanTopicList()
+        public ZatsudanTopicList()
         {
             ZatsudanTopics = [];
         }
@@ -24,10 +24,10 @@ namespace IteratorPatternApp
         {
             return ZatsudanTopics.Count;
         }
-        // 戻り値がZatusdanToppicListIterator型ではなく、IIterator型（インターフェース）になっているのがミソ
+        // 戻り値がZatsudanToppicListIterator型ではなく、IIterator型（インターフェース）になっているのがミソ
         public IIterator Iterator()
         {
-            return new ZatusdanTopicListIterator(this);
+            return new ZatsudanTopicListIterator(this);
         }
     }
 }

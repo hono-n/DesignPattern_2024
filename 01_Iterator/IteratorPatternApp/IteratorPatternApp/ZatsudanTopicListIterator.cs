@@ -2,18 +2,18 @@ using System;
 
 namespace IteratorPatternApp
 {
-    public class ZatusdanTopicListIterator : IIterator
+    public class ZatsudanTopicListIterator : IIterator
     {
-        private readonly ZatusdanTopicList zatusdanTopicList;
+        private readonly ZatsudanTopicList ZatsudanTopicList;
         private int index;
-        public ZatusdanTopicListIterator(ZatusdanTopicList zatusdanTopicList)
+        public ZatsudanTopicListIterator(ZatsudanTopicList ZatsudanTopicList)
         {
-            this.zatusdanTopicList = zatusdanTopicList;
+            this.ZatsudanTopicList = ZatsudanTopicList;
             this.index = 0;
         }
         public bool HasNext()
         {
-            if (index < zatusdanTopicList.GetLength())
+            if (index < ZatsudanTopicList.GetLength())
             {
                 return true;
             }
@@ -24,9 +24,9 @@ namespace IteratorPatternApp
         }
         public object Next()
         {
-            ZatsudanTopic zatusdanTopic = zatusdanTopicList.GetZatsudanTopicAt(index);
+            ZatsudanTopic ZatsudanTopic = ZatsudanTopicList.GetZatsudanTopicAt(index);
             index++;
-            return zatusdanTopic;
+            return ZatsudanTopic;
         }
     }
 }
