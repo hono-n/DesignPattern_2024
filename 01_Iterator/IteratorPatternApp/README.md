@@ -15,6 +15,7 @@
 - 実行すると、雑談トピック（タイトルと概要）を一覧表示してくれる
 
 ### ソースコードの説明
+[クラス図_01_Iterator](https://app.diagrams.net/#G1tgGOTJkjeALWFz7hoxEG2k6krkbFmu5A#%7B%22pageId%22%3A%22ovpQa-QZgn8lnvCdTTWl%22%7D)
 - **ZatusdanTopicクラス**
   - iterate の対象となる「雑談トピック」を表す
   - Title と Description のふたつのフィールドを持つ
