@@ -16,7 +16,7 @@ namespace IteratorPatternApp
             while (it.HasNext())
             {
                 ZatsudanTopic zt = (ZatsudanTopic)it.Next();
-                System.Console.WriteLine(zt.Introduce());
+                System.Console.WriteLine(zt);
             }
         }
     }

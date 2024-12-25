@@ -13,7 +13,8 @@ namespace IteratorPatternApp
             Description = description;
         }
 
-        public string Introduce(){
+        public override string ToString()
+        {
             return $"・{this.Title}【{this.Description}】";
         }
     }
