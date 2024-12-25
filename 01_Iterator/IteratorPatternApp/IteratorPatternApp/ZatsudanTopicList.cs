@@ -22,6 +22,7 @@ namespace IteratorPatternApp
         {
             return last;
         }
+        // 戻り値がZatusdanToppicListIterator型ではなく、IIterator型（インターフェース）になっているのがミソ
         public IIterator Iterator()
         {
             return new ZatusdanTopicListIterator(this);
