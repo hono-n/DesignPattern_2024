@@ -3,8 +3,8 @@ using System;
 namespace IteratorPatternApp
 {
 
-    public interface IAggregate
+    public interface IAggregate<T>
     {
-        public abstract IIterator Iterator();
+        public abstract IIterator<T> Iterator();
     }
 }

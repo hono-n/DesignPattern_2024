@@ -17,19 +17,19 @@ namespace IteratorPatternApp
             ZatsudanTopicList.GetZatsudanTopicAt(2).MarkAsConsumed();
 
             System.Console.WriteLine("=== すべて ====");
-            IIterator it = ZatsudanTopicList.Iterator();
+            IIterator<ZatsudanTopic> it = ZatsudanTopicList.Iterator();
             while (it.HasNext())
             {
-                ZatsudanTopic zt = (ZatsudanTopic)it.Next();
+                ZatsudanTopic zt = it.Next();
                 System.Console.WriteLine(zt);
             }
 
             System.Console.WriteLine("=== まだ話していないもののみ ====");
-            IIterator available_it = ZatsudanTopicList.AvailableIterator();
+            IIterator<ZatsudanTopic> available_it = ZatsudanTopicList.AvailableIterator();
 
             while (available_it.HasNext())
             {
-                ZatsudanTopic zt = (ZatsudanTopic)available_it.Next();
+                ZatsudanTopic zt = available_it.Next();
                 System.Console.WriteLine(zt);
             }
         }

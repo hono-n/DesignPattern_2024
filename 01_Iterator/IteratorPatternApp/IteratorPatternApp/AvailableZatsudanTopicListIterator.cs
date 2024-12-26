@@ -2,7 +2,7 @@ using System;
 
 namespace IteratorPatternApp
 {
-    public class AvailableZatsudanTopicListIterator : IIterator
+    public class AvailableZatsudanTopicListIterator : IIterator<ZatsudanTopic>
     {
         private readonly ZatsudanTopicList ZatsudanTopicList;
         private int index;
@@ -27,7 +27,7 @@ namespace IteratorPatternApp
             }
             return result;
         }
-        public object Next()
+        public ZatsudanTopic Next()
         {
             ZatsudanTopic zt = ZatsudanTopicList.GetZatsudanTopicAt(index);
             while (index < ZatsudanTopicList.GetLength())
