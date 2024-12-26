@@ -24,9 +24,9 @@ namespace IteratorPatternApp
         }
         public object Next()
         {
-            ZatsudanTopic ZatsudanTopic = ZatsudanTopicList.GetZatsudanTopicAt(index);
+            ZatsudanTopic zt = ZatsudanTopicList.GetZatsudanTopicAt(index);
             index++;
-            return ZatsudanTopic;
+            return zt;
         }
     }
 }

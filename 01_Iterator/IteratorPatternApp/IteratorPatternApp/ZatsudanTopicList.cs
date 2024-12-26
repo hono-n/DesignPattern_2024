@@ -29,5 +29,9 @@ namespace IteratorPatternApp
         {
             return new ZatsudanTopicListIterator(this);
         }
+
+        public IIterator AvailableIterator(){
+            return new AvailableZatsudanTopicListIterator(this);
+        }
     }
 }
