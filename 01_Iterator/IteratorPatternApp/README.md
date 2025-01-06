@@ -51,5 +51,6 @@
 
 # 初日研修後の変更点
 - 雑談タイムで話したものを除いて出力するようにするため ConcreteIterator役のAvailableZatsudanTopicListIteratorを新たに実装した（課題）
+- 雑談トピックの出力処理をToString()のオーバーライドで書き換えた
 - ConcreteAggregate役のZatsudanTopicListを、Listで実装し可変長にした
 - ジェネリクスで実装した
