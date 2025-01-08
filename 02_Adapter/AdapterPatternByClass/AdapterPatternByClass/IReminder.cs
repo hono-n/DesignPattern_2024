@@ -4,9 +4,10 @@ namespace AdapterPatternByClass
 {
     interface IReminder
     {
-        public string Target {get; set;}
-        public string Due { get; set;}
-        public bool TodayIsDueDate(string date);
-        public void Remind();
+        // interfaceはすべてpublic
+        string Target {get;}
+        string Due { get;}
+        bool TodayIsDueDate(string date);
+        void Remind();
     }
 }
