@@ -32,7 +32,20 @@
 - AdapteeとTarget役の機能があまりにかけ離れている場合は使えないとあるが、どの程度までの乖離具合なら許容なのかの判断基準を養いたい
 - C#の場合、インターフェースでプロパティを定義することはよくやる？：YES
 
-### 課題
-- Railsの DatabaseDriver がどのような実装になっているか調べてみる
-    - RailsのCacheStore（CacheDriver）も
-    - 社内のプロジェクトも 「Adapter」で grep すれば例が見つかるはず
+# 課題
+### Railsの DatabaseDriver がどのような仕組みになっているか調べてみる
+- `ActiveRecord::ConnectionAdapters::AbstractAdapter` が、データベースに固有な機能（コネクションの確立、`:offset`や`:limit`などのSQLフラグメントの生成など）のためのインターフェースを提供している。
+- `ActiveRecord::ConnectionAdapters::Mysql2Adapter`や `ActiveRecord::ConnectionAdapters::PostgreSQLAdapter ` などの具体的なAdapterが上記の AbstractAdapterを実装し、データベースごとの違いを吸収している。
+- dattabase.yml で 以下のように adapter に mysql2 を指定した場合、対応する Mysql2Adapter が使われるようになる。
+    ```
+    production:
+    primary:
+        database: my_primary_database
+        username: root
+        password: <%= ENV['ROOT_PASSWORD'] %>
+        adapter: mysql2
+    ```
+- たとえばMysql2Adapter の `new_client`メソッドでは `::Mysql2::Client.new` をしてMySQLとの接続を確立しており、`PostgreSQLAdapter` の `new_client`メソッドでは `PG.connect` を呼び出して PostgreSQLとの接続を確立している。
+
+### 社内のプロジェクトでAdapterPatterを使っている箇所を確認する
+- 災救マップの PublicApiAdapter, LaAdapter, SmachekAdapter （いずれも BaseRefugeAdapter を継承）が、投稿元が異なる避難状況投稿を同じRefugeモデルで扱うためのアダプターとして機能している
