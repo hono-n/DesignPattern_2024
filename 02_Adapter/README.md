@@ -35,7 +35,7 @@
 # 課題
 ### Railsの DatabaseDriver がどのような仕組みになっているか調べてみる
 - `ActiveRecord::ConnectionAdapters::AbstractAdapter` が、データベースに固有な機能（コネクションの確立、`:offset`や`:limit`などのSQLフラグメントの生成など）のためのインターフェースを提供している。
-- `ActiveRecord::ConnectionAdapters::Mysql2Adapter`や `ActiveRecord::ConnectionAdapters::PostgreSQLAdapter ` などの具体的なAdapterが上記の AbstractAdapterを実装し、データベースごとの違いを吸収している。
+- `ActiveRecord::ConnectionAdapters::Mysql2Adapter`や `ActiveRecord::ConnectionAdapters::PostgreSQLAdapter ` などの具体的なAdapterが上記の AbstractAdapterを実装し、データベースごとの違いを吸収している。そのため、データベースの利用側は使用しているデータベースを意識することなく統一された呼び出し方でデータベースと接続したりSQLを実行するメソッドを使うことができる。
 - dattabase.yml で 以下のように adapter に mysql2 を指定した場合、対応する Mysql2Adapter が使われるようになる。
     ```
     production:
@@ -48,4 +48,4 @@
 - たとえばMysql2Adapter の `new_client`メソッドでは `::Mysql2::Client.new` をしてMySQLとの接続を確立しており、`PostgreSQLAdapter` の `new_client`メソッドでは `PG.connect` を呼び出して PostgreSQLとの接続を確立している。
 
 ### 社内のプロジェクトでAdapterPatterを使っている箇所を確認する
-- 災救マップの PublicApiAdapter, LaAdapter, SmachekAdapter （いずれも BaseRefugeAdapter を継承）が、投稿元が異なる避難状況投稿を同じRefugeモデルで扱うためのアダプターとして機能している
+- 災救マップの PublicApiAdapter, LaAdapter, SmachekAdapter （いずれも BaseRefugeAdapter を継承）が、投稿元が異なる避難状況投稿を同じRefugeモデルで扱えるようにするためのアダプターとして機能している
