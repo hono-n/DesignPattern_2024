@@ -8,16 +8,19 @@ namespace TemplateMethodPatternApp
         public string Title { get; }
         public int IssueId { get; }
 
-        public PRTemplate(string title, int issueId){
+        public PRTemplate(string title, int issueId)
+        {
             Title = title;
             IssueId = issueId;
         }
 
-        public override string DisplayTitle(){
+        public override string DisplayTitle()
+        {
             return $"【2割共有】{Title}";
         }
 
-        public override string DisplayContent(){
+        public override string DisplayContent()
+        {
             string content = $"""
             ### Issue
             - #{IssueId}
