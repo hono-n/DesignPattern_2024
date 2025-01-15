@@ -13,12 +13,12 @@ namespace TemplateMethodPatternApp
         }
 
 
-        public override string DisplayTitle()
+        protected override string DisplayTitle()
         {
             return $"{Date} 日報";
         }
 
-        public override string DisplayContent()
+        protected override string DisplayContent()
         {
             string content = $"""
             ### 本日の予定

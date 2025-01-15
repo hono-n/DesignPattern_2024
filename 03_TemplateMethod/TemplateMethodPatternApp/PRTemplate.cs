@@ -14,12 +14,12 @@ namespace TemplateMethodPatternApp
             IssueId = issueId;
         }
 
-        public override string DisplayTitle()
+        protected override string DisplayTitle()
         {
             return $"【2割共有】{Title}";
         }
 
-        public override string DisplayContent()
+        protected override string DisplayContent()
         {
             string content = $"""
             ### Issue

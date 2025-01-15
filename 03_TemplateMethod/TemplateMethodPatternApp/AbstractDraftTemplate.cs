@@ -5,8 +5,8 @@ namespace TemplateMethodPatternApp
 
     public abstract class AbstractDraftTemplate
     {
-        public abstract string DisplayTitle();
-        public abstract string DisplayContent();
+        protected abstract string DisplayTitle();
+        protected abstract string DisplayContent();
 
         public void ShowTemplate()
         {
