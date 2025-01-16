@@ -18,15 +18,11 @@ namespace TemplateMethodPatternApp
             return $"{Date} 日報";
         }
 
-        protected override string DisplayContent()
+        protected override List<DraftContent> DisplayContent()
         {
-            string content = $"""
-            ### 本日の予定
-
-            ### 意識する課題
-
-            """;
-            return content;
+            contents.Add(new DraftContent(4, "本日の予定"));
+            contents.Add(new DraftContent(4, "意識する課題"));
+            return contents;
         }
     }
 }
