@@ -19,20 +19,13 @@ namespace TemplateMethodPatternApp
             return $"【2割共有】{Title}";
         }
 
-        protected override string DisplayContent()
+        protected override List<DraftContent> DisplayContent()
         {
-            string content = $"""
-            ### Issue
-            - #{IssueId}
-
-            ### 2割共有後TODO
-
-            ### エビデンス
-
-            ### 備考
-
-            """;
-            return content;
+            contents.Add(new DraftContent(3, "Issue", $"- #{IssueId}"));
+            contents.Add(new DraftContent(3, "2割共有後TODO"));
+            contents.Add(new DraftContent(3, "エビデンス"));
+            contents.Add(new DraftContent(3, "備考"));
+            return contents;
         }
     }
 }
