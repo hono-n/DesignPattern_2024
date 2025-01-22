@@ -10,9 +10,11 @@ namespace FactoryMethodPatternApp
     {
         public static void Main()
         {
+            // ---- ライブラリを使っているイメージ -----
             DeliveryFactory factory_yamato = new YamatoFactory();
             DeliveryFactory factory_jp = new JapanPostFactory();
 
+            // ---- アプリ側のコード -----
             // 12 * 20 * 6 の荷物
             Delivery yamato_1 = factory_yamato.Create(12, 20, 6);
             Delivery jp_1 = factory_jp.Create(12, 20, 6);
