@@ -10,39 +10,31 @@ namespace FactoryMethodPatternApp
     {
         public static void Main()
         {
-            // ---- ライブラリを使っているイメージ -----
+            // ---- ライブラリの機能を使う -----
             DeliveryFactory factory_yamato = new YamatoFactory();
             DeliveryFactory factory_jp = new JapanPostFactory();
 
-            // ---- アプリ側のコード -----
-            // 12 * 20 * 6 の荷物
-            Delivery yamato_1 = factory_yamato.Create(12, 20, 6);
-            Delivery jp_1 = factory_jp.Create(12, 20, 6);
+            // ---- アプリ側の業務ロジック -----
+            Console.WriteLine("送りたい荷物の3辺の長さを順に入力してください");
+            Console.WriteLine("1辺目: ");
+            string? input = Console.ReadLine();
+            int length_1 = int.Parse(input);
 
-            yamato_1.AssignPlan();
-            yamato_1.CalcPrice();
+            Console.WriteLine("2辺目: ");
+            input = Console.ReadLine();
+            int length_2 = int.Parse(input);
 
-            jp_1.AssignPlan();
-            jp_1.CalcPrice();
+            Console.WriteLine("3辺目: ");
+            input = Console.ReadLine();
+            int length_3 = int.Parse(input);
 
-            Console.WriteLine("===== 12 * 20 * 6 の荷物 ======");
-            Console.WriteLine($"【ヤマト】プラン：{yamato_1.Plan}（{yamato_1.Price}円）");
-            Console.WriteLine($"【日本郵便】プラン：{jp_1.Plan}（{jp_1.Price}円）");
+            Console.WriteLine("ありがとうございました。クロネコヤマトと日本郵便で比較します。");
 
+            Delivery yamato_1 = factory_yamato.Create(length_1, length_2, length_3);
+            Delivery jp_1 = factory_jp.Create(length_1, length_2, length_3);
 
-            // 5 * 6 * 2 の荷物
-            Delivery yamato_2 = factory_yamato.Create(5, 6, 2);
-            Delivery jp_2 = factory_jp.Create(5, 6, 2);
-
-            yamato_2.AssignPlan();
-            yamato_2.CalcPrice();
-
-            jp_2.AssignPlan();
-            jp_2.CalcPrice();
-
-            Console.WriteLine("===== 5 * 6 * 2 の荷物 =====");
-            Console.WriteLine($"【ヤマト】プラン：{yamato_2.Plan}（{yamato_2.Price}円）");
-            Console.WriteLine($"【日本郵便】プラン：{jp_2.Plan}（{jp_2.Price}円）");
+            // フレームワークの機能を使う
+            CompareDeliveries.Report(new List<Delivery>{yamato_1, jp_1});
         }
     }
 }

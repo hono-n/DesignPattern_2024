@@ -16,6 +16,7 @@ namespace FactoryMethodPatternApp.DeliveryCompany
         int LongSideLength { get; set; }
 
         internal JapanPost(int size_1, int size_2, int size_3){
+            CompanyName = "日本郵便";
             int[] sizes = [size_1, size_2, size_3];
             Array.Sort(sizes);
 

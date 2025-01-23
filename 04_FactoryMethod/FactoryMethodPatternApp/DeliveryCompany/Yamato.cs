@@ -8,6 +8,7 @@ namespace FactoryMethodPatternApp.DeliveryCompany
     // ConcreteProduct役
     public class Yamato : Delivery
     {
+
         int Height { get; }
         int Width { get; }
         int Thickness { get; }
@@ -15,6 +16,7 @@ namespace FactoryMethodPatternApp.DeliveryCompany
 
         internal Yamato(int height, int width, int thickness)
         {
+            CompanyName = "クロネコヤマト";
             Height = height;
             Width = width;
             Thickness = thickness;

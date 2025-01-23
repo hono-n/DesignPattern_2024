@@ -35,5 +35,5 @@
     - Frameworkの範囲を超えてしまっているため、Framework をそもそも拡張する必要が出てくる。Frameworkの範囲内であれば、サブクラスをつくることで対応できる。
 
 # 課題
-- Mainメソッドの中身をクラスや関数に分割し、フレームワーク（「AssignPlan→CalcPrice→比較」のようにDelveryを使う手順）・アプリ・gemに分割する。
-    - フレームワークについては、Framework.Famework.cs にロジックを書くイメージ。
+- Mainメソッドの中身をクラスや関数に分割し、アプリ・フレームワーク・gemに分割する。
+    - フレームワークについては、Framework.Famework.cs にロジックを書くイメージ。「AssignPlan()→CalcPrice()→比較」のように、Delveryを扱った処理手順の部分
