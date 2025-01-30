@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Runtime.CompilerServices;
 using SingletonPatternApp.Config;
 
@@ -12,14 +13,16 @@ namespace SingletonPatternApp
         {
             public static void DisplayCurrentTime(){
                 LanguageConfig lc = LanguageConfig.GetInstance();
+                 DateTime dt = DateTime.Now;
                 if (lc.CurrentLanguage == "En")
                 {
-                    Console.WriteLine($"Current Time is {DateTime.Now}");
+                    CultureInfo culture = new CultureInfo("en-US");
+                    Console.WriteLine($"Current Time is【{dt.ToString("f", culture)}】");
                 }
                 else
                 {
-                    lc.SetToJa();
-                    Console.WriteLine($"現在時刻は{DateTime.Now}です");
+                    CultureInfo culture = new CultureInfo("ja-JP");
+                    Console.WriteLine($"現在時刻は【{dt.ToString("f", culture)}】です");
                 }
             }
         }
