@@ -24,7 +24,7 @@ namespace PrototypePatternApp
             IGreeting g = null;
             try
             {
-                g = (IGreeting)MemberwiseClone();
+                g = (IGreeting)Clone();
             }
             catch (Exception e)
             {
@@ -42,10 +42,16 @@ namespace PrototypePatternApp
     // フォーマルな挨拶をするクラス
     public class FormalGreeting : IGreeting
     {
+        // 　get のみにすることで、不変オブジェクトにできる
+        private string TitleOfHonor { get; }
+
+        public FormalGreeting(string titleOfHonor){
+            this.TitleOfHonor = titleOfHonor;
+        }
 
         public string Greet(Person To)
         {
-            return $"{To.FamilyName}さん、おはようございます。";
+            return $"{To.FamilyName}{TitleOfHonor}、おはようございます。";
         }
 
         public IGreeting CreateClone()
