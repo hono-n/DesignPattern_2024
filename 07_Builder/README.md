@@ -3,7 +3,7 @@
 ### 作成したサンプルの概要説明
 
 ### ソースコードの説明
-[クラス図_06_PrototypePattern](https://app.diagrams.net/#G1tgGOTJkjeALWFz7hoxEG2k6krkbFmu5A#%7B%22pageId%22%3A%22Zm_nHQO0GAeqFS43771l%22%7D)
+[クラス図_07_BuilderPattern](https://app.diagrams.net/#G1tgGOTJkjeALWFz7hoxEG2k6krkbFmu5A#%7B%22pageId%22%3A%22Zm_nHQO0GAeqFS43771l%22%7D)
 
 ### プログラムの実行結果
 ```
