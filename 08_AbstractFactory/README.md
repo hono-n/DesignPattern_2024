@@ -41,4 +41,7 @@
 
 ### フィードバック
 
+
 # 課題
+- Factoriesというnmaespaceをつくって、そのなかに YamatoFactoryとJapanPostFacotyをいれる
+  - main関数では、リフレクションで動的に読み込んで表示する

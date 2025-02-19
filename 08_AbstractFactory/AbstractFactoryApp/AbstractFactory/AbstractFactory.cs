@@ -10,7 +10,7 @@ namespace AbstractFactoryApp
         {
             // プロパティ
             public DeliveryItemSize DeliveryItemSize { get; }
-            public string? BoxType { get; set; }
+            public string? BoxType { get; protected set; }
 
             // コンストラクタ
             public PackingBox(DeliveryItemSize deliveryItemSize)
@@ -44,10 +44,10 @@ namespace AbstractFactoryApp
         // ------ AbstractFactory ------
         public abstract class Factory {
             public static Factory GetFactory(string className){
-                Factory factory = null;
+                Factory? factory = null;
                 try {
                     var type = Type.GetType(className);
-                    factory = (Factory) Activator.CreateInstance(type);
+                    factory = Activator.CreateInstance(type) as Factory;
                 } catch (Exception e) {
                     Console.WriteLine(e.ToString());
                 }
