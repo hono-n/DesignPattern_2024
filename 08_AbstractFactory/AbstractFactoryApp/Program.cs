@@ -1,5 +1,6 @@
 ﻿using System;
 using AbstractFactoryApp.AbstractFactory;
+using System.Reflection;
 
 namespace AbstractFactoryApp
 {
@@ -21,15 +22,20 @@ namespace AbstractFactoryApp
             input = Console.ReadLine();
             int length_3 = int.Parse(input);
 
-            Console.WriteLine("配送業者はどちらにしますか？【1: クロネコヤマト, 2: 日本郵便】");
-            input = Console.ReadLine();
-            int company = int.Parse(input);
-
             Console.WriteLine("品名を入力してください");
             string contentName = Console.ReadLine();
 
-            string className = company == 1 ? "AbstractFactoryApp.YamatoFactory.YamatoFactory" : "AbstractFactoryApp.JapanPostFactory.JapanPostFactory";
+            string ns = "AbstractFactoryApp.Factories";
+            Console.WriteLine("利用するFactoryを以下の候補から選んで入力してください。");
+            // 名前空間指定でGetTypeするメソッドを使うとベター
+            var q = from t in Assembly.GetExecutingAssembly().GetTypes()
+                    where t.IsClass && t.Namespace == ns
+                    select t;
+            q.ToList().ForEach(t => Console.WriteLine(t.Name));
+            string cName = Console.ReadLine();
+            string className = ns + '.' + cName;
             Factory factory = Factory.GetFactory(className);
+
             PackingBox box = factory.CreatePackingBox(new DeliveryItemSize(length_1, length_2, length_3));
             box.AssignBoxSize();
             Delivery delivery = factory.CreateDelivery(contentName, box);

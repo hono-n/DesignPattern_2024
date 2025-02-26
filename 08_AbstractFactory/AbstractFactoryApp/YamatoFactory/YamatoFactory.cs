@@ -69,17 +69,5 @@ namespace AbstractFactoryApp
                 Console.WriteLine(content);
             }
         }
-
-        // ------ ConcreteFactory ------
-        public class YamatoFactory: Factory
-        {
-            public override PackingBox CreatePackingBox(DeliveryItemSize size){
-                return new YamatoPackingBox(size);
-
-            }
-            public override Delivery CreateDelivery(string contentName, PackingBox packingBox){
-                return new YamatoDelivery(contentName, packingBox);
-            }
-        }
     }
 }
