@@ -16,31 +16,31 @@ namespace BuilderPatternApp
             Console.WriteLine("=============================");
 
             r_director.ConstructTodayWithoutPoint("バッグインバッグ", 2380);
-            OnlineShoppingDetail bag_in_bag_detail = r_builder.GetResult();
+            RakutenShoppingDetail bag_in_bag_detail = r_builder.GetResult();
             Console.WriteLine(bag_in_bag_detail.ToString());
 
             Console.WriteLine("=============================");
 
             r_director.ConstructTodayWithoutPoint("トラベルメイクポーチ", 2930);
-            OnlineShoppingDetail travel_pouch_detail = r_builder.GetResult();
+            RakutenShoppingDetail travel_pouch_detail = r_builder.GetResult();
             Console.WriteLine(travel_pouch_detail.ToString());
 
             Console.WriteLine("=============================");
 
             r_director.ConstructTodayWithPoint("キッチンマット", 2580, 580);
-            OnlineShoppingDetail kitchen_mat_detail = r_builder.GetResult();
+            RakutenShoppingDetail kitchen_mat_detail = r_builder.GetResult();
             Console.WriteLine(kitchen_mat_detail.ToString());
 
             Console.WriteLine("=============================");
 
             a_director.ConstructTodayWithoutPoint("コロコロ本体L", 3290);
-            OnlineShoppingDetail korokoro_detail = a_builder.GetResult();
+            AmazonShoppingDetail korokoro_detail = a_builder.GetResult();
             Console.WriteLine(korokoro_detail.ToString());
 
             Console.WriteLine("=============================");
 
             a_director.ConstructTodayWithPoint("Caroteフライパンセット", 3480, 480);
-            OnlineShoppingDetail carote_detail = a_builder.GetResult();
+            AmazonShoppingDetail carote_detail = a_builder.GetResult();
             Console.WriteLine(carote_detail.ToString());
         }
     }

@@ -15,7 +15,6 @@ namespace BuilderPatternApp
 
         public void ConstructTodayWithoutPoint(string productName, int price){
             DateOnly today = DateOnly.FromDateTime(DateTime.Now);
-            Builder.SetShopInfo();
             Builder.SetPurchaseDate(today);
             Builder.SetPurchaseInfo(productName, price);
         }
@@ -23,7 +22,7 @@ namespace BuilderPatternApp
         public void ConstructTodayWithPoint(string productName, int price, int consumedPoint){
             DateOnly today = DateOnly.FromDateTime(DateTime.Now);
             this.ConstructTodayWithoutPoint(productName, price);
-            Builder.SetPointInfo(consumedPoint);
+            Builder.SetConsumedPointInfo(consumedPoint);
         }
 
     }

@@ -5,10 +5,7 @@ namespace BuilderPatternApp
     // ConcreteBuilderクラス（楽天市場バージョン）
     public class RakutenShoppingDetailBuilder : OnlineShoppingDetailBuilder
     {
-        public override void SetShopInfo()
-        {
-            this.PlatformName = "楽天市場";
-        }
+        private int EarnedRakutenPoint { get; set; }
 
         public override void SetPurchaseDate(DateOnly purchaseDate)
         {
@@ -19,25 +16,28 @@ namespace BuilderPatternApp
         {
             this.ProductName = productName;
             this.Price = price;
+            this.EarnedRakutenPoint = CalcEarnedRakutenPoint();
         }
 
-        public override void SetPointInfo(int consumedPoint)
+        public override void SetConsumedPointInfo(int consumedPoint)
         {
             this.UsePoint = true;
-            this.PointName = "楽天ポイント";
             this.ConsumedPoint = consumedPoint;
         }
 
-        public override OnlineShoppingDetail GetResult()
+        private int CalcEarnedRakutenPoint(){
+            return (int) Math.Round((decimal)(Price * 0.03));
+        }
+
+        public RakutenShoppingDetail GetResult()
         {
-            return new OnlineShoppingDetail(
-                this.PlatformName,
+            return new RakutenShoppingDetail(
                 (DateOnly)this.PurchaseDate,
                 this.ProductName,
                 (int)this.Price,
                 (bool)this.UsePoint,
-                this.PointName,
-                this.ConsumedPoint
+                this.ConsumedPoint,
+                this.EarnedRakutenPoint
             );
         }
     }
@@ -45,10 +45,6 @@ namespace BuilderPatternApp
     // ConcreteBuilderクラス（Amazonバージョン）
     public class AmazonShoppingDetailBuilder : OnlineShoppingDetailBuilder
     {
-        public override void SetShopInfo()
-        {
-            this.PlatformName = "Amazon";
-        }
 
         public override void SetPurchaseDate(DateOnly purchaseDate)
         {
@@ -61,22 +57,17 @@ namespace BuilderPatternApp
             this.Price = price;
         }
 
-        public override void SetPointInfo(int consumedPoint)
+        public override void SetConsumedPointInfo(int consumedPoint)
         {
-            this.UsePoint = true;
-            this.PointName = "Amazonギフトカード";
             this.ConsumedPoint = consumedPoint;
         }
 
-        public override OnlineShoppingDetail GetResult()
+        public AmazonShoppingDetail GetResult()
         {
-            return new OnlineShoppingDetail(
-                this.PlatformName,
+            return new AmazonShoppingDetail(
                 (DateOnly)this.PurchaseDate,
                 this.ProductName,
                 (int)this.Price,
-                (bool)this.UsePoint,
-                this.PointName,
                 this.ConsumedPoint
             );
         }
