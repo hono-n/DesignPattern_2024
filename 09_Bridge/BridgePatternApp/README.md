@@ -1,6 +1,7 @@
 # Noteアプリ
 
 ### 作成したサンプルの概要説明
+- ライトモード・ダークモードなどカラーテーマに応じてテキストを表示してくれるノートアプリ。
 
 ### ソースコードの説明
 [クラス図_08_BridgePattern](https://app.diagrams.net/#G1tgGOTJkjeALWFz7hoxEG2k6krkbFmu5A#%7B%22pageId%22%3A%22oxL4OEkVIoAIQy58V_L6%22%7D)
@@ -30,4 +31,4 @@
 ### フィードバック
 
 
-# 課題
+### 課題
